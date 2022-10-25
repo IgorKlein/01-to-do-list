@@ -6,8 +6,12 @@ export function Panel({tasks}) {
 
     var [taskList, setTaskList] = useState(tasks)
 
-    function deleteTask(task) {
-        console.log(`Deletar a task: ${task}`)
+    // This function will really delete tha task from the list
+    function deleteTask(taskToDelete) {
+      const tasksWithoutDeletedOne = taskList.filter(task => {
+        return task.content !== taskToDelete
+      })
+      setTaskList(tasksWithoutDeletedOne)
     }
 
     return (
@@ -17,7 +21,8 @@ export function Panel({tasks}) {
             <TaskCard
               key={task.id}
               content={task.content}
-              status={task.status}/>
+              status={task.status}
+              onDeleteTask={deleteTask}/>
           )
         })}
         </div>
