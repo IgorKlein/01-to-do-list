@@ -1,0 +1,43 @@
+.inputForm {
+    width: 100%;
+    max-width: 46rem;
+    height: 3.375rem;
+    margin-top: -1.6875rem;
+    
+    display: flex;
+    gap: 0.5rem;
+}
+
+.inputForm textArea {
+    width: 86.68%;
+
+    padding: 1rem 0.5rem;
+    background: var(--gray-500);
+    color: var(--gray-100);
+
+    border: 0;
+    border-radius: 4px;
+    resize: none;
+
+}
+.inputForm textArea::placeholder {
+    color: var(--gray-300);
+    opacity: 1;
+
+}
+
+.inputForm button {
+    width: 12.2%;
+    padding: 1rem 0;
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    border: 0;
+    border-radius: 4px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
