@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import styles from './InfoPanel.module.css';
 
-export function InfoPanel({ tasks }) {
+export function InfoPanel({ totalTasks }) {
 
-    let [taskCounter, setTaskCounter] = useState([tasks.length, 2])
+    let [taskCounter, setTaskCounter] = useState(totalTasks)
 
-
-    function onRefreshCounter() {
-        const tasksDone = tasks.filter(task => task.status === true)
-        setTaskCounter([tasks.length, tasksDone.length])
-        console.log(tasksDone)
+    function refreshCounter() {
+    //     const tasksDone = tasks.filter(task => task.status === true)
+    //     setTaskCounter([tasks.length, tasksDone.length])
+    //     console.log(tasksDone)
     }
 
     return (
@@ -17,13 +16,13 @@ export function InfoPanel({ tasks }) {
             <div className={styles.summary}>
                 <h2 className={styles.created}>Tarefas criadas</h2>
                 <div className={styles.counter}>
-                    <p onClick={onRefreshCounter}>{taskCounter[0]}</p>
+                    <p onClick={refreshCounter}>{taskCounter}</p>
                 </div>
             </div>
             <div className={styles.summary}>
                 <h2 className={styles.done}>Concluídas</h2>
                 <div className={styles.counter}>
-                    <p>{taskCounter[1]}</p>
+                    <p>2</p>
                 </div>
             </div>
         </div>
