@@ -50,11 +50,24 @@ export default function App() {
     setTaskList(refreshedTaskList)
   }
 
+  function addTask(newTaskContent) {
+    const newTaskId = new Date().valueOf();
+    const newTask = {
+      id: newTaskId,
+      content: newTaskContent,
+      isDone: false,
+    }
+
+    setTaskList([...taskList, newTask])
+    console.log([...taskList, newTask])
+  }
+
   return (
     <header className={styles.wrapper}>
       <Header />
       <main className={styles.mainContent}>
-        <InputForm />
+        <InputForm 
+          onAddTask={addTask}/>
         <Panel 
           tasks={taskList}
           onDeleteTask={deleteTask}
