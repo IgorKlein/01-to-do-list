@@ -2,18 +2,41 @@ import { useState } from 'react';
 import styles from './Panel.module.css'
 import { TaskCard } from './TaskCard';
 
-export function Panel({tasks}) {
+export function Panel({tasks, onRefreshApp}) {
 
     var [taskList, setTaskList] = useState(tasks)
-    var [taskCounter, setTaskCounter] = useState(tasks.length)
+    var [taskCounter, setTaskCounter] = useState(
+      [taskList.length, tasks.filter(task => task.isDone === true).length])
+
+    function refreshApp(tasks) {
+      setTaskList(tasks)
+      setTaskCounter(
+        [tasks.length, tasks.filter(task => task.isDone === true).length]
+      )
+      onRefreshApp(tasks)
+    }
 
     // This function will really delete tha task from the list
-    function deleteTask(taskToDelete) {
+    function deleteTask(taskIdToDelete) {
       const tasksWithoutDeletedOne = taskList.filter(task => {
-        return task.content !== taskToDelete
+        return task.id !== taskIdToDelete
       })
-      setTaskList(tasksWithoutDeletedOne)
-      setTaskCounter(tasksWithoutDeletedOne.length)
+
+      console.log(`Apos deletar, o array fica da seguinte forma:`)
+      console.log(tasksWithoutDeletedOne)
+
+      refreshApp(tasksWithoutDeletedOne)
+    }
+
+    function changeStatusTask(taskId) {
+      const refreshedTaskList = taskList.map(task => {
+        if (task.id === taskId) {
+          task.isDone = !task.isDone
+          console.log(`Alterado status da tarefa ${task.content} para ${task.isDone}`)
+        }
+        return task
+      })
+      refreshApp(refreshedTaskList)
     }
 
     return (
@@ -22,13 +45,13 @@ export function Panel({tasks}) {
             <div className={styles.summary}>
               <h2 className={styles.created}>Tarefas criadas</h2>
               <div className={styles.counter}>
-                <p>{taskCounter}</p>
+                <p>{taskCounter[0]}</p>
               </div>
             </div>
             <div className={styles.summary}>
               <h2 className={styles.done}>Concluídas</h2>
               <div className={styles.counter}>
-                <p>2</p>
+                <p>{taskCounter[1]}</p>
               </div>
             </div>
           </div>
@@ -37,10 +60,11 @@ export function Panel({tasks}) {
             { taskList.map(task => {
             return (
               <TaskCard
-                key={task.id}
+                id={task.id}
                 content={task.content}
-                status={task.status}
+                isDone={task.isDone}
                 onDeleteTask={deleteTask}
+                onChangeStatus={changeStatusTask}
               />
             )
             })}

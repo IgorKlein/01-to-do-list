@@ -75,11 +75,14 @@
     display: block;
 }
 
-.content {
-    text-decoration: line-through;
+.taskDescription {
+
 }
 
-
+.taskDescriptionDone {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
 
 .taskCard a {
     align-self: flex-start;

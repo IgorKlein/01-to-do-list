@@ -1,19 +1,14 @@
 import React, { useState, MouseEvent } from 'react';
 import styles from './TaskCard.module.css';
 
-export function TaskCard( { key, content, status, onDeleteTask } ) {
-
-    var [ isSelected, setIsSelected ] = useState( status )
+export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } ) {
 
     function handleDeleteTask() {
-        onDeleteTask(content)
+        onDeleteTask(id)
     }
 
     function changeStatusTask() {
-
-        setIsSelected((state)=>{
-            return !state
-        })
+        onChangeStatus(id);
     }
 
     return (
@@ -23,18 +18,15 @@ export function TaskCard( { key, content, status, onDeleteTask } ) {
                     <input
                         type="checkbox"
                         name="task"
-                        // value="checked"
-                        checked={isSelected}
+                        value={isDone}
+                        checked={isDone}
                         onChange={changeStatusTask}
                     />
                     <span className={styles.checkmark}></span>
                 </label>
             <span 
-                className={styles.content}
-                style={
-                    isSelected ?
-                    {textDecorationLine: 'line-through'} :
-                    {textDecorationLine: 'none'}}>
+                className=
+                    { isDone ? styles.taskDescriptionDone : styles.taskDescription }>
                 {content}
             </span>
             </div>

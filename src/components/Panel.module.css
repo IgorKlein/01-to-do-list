@@ -4,7 +4,7 @@ main {
 }
 
 .container {
-    width: 96%;
+    width: 100%;
     max-width: 46rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -12,7 +12,7 @@ main {
 }
 
 .summary {
-    margin: 8rem 1rem 0 1rem;
+    margin-top: 8rem;
 
     display: flex;
     justify-content: space-between;
@@ -41,8 +41,3 @@ main {
 .counter p {
     color: var(--gray-200);
 }
-
-/* .panel {
-    width: 100%;
-    max-width: 46rem;
-} */
