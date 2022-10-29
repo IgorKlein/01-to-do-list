@@ -1,4 +1,3 @@
-import React, { useState, MouseEvent } from 'react';
 import styles from './TaskCard.module.css';
 
 export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } ) {
@@ -7,7 +6,7 @@ export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } 
         onDeleteTask(id)
     }
 
-    function changeStatusTask() {
+    function handleChangeStatusTask() {
         onChangeStatus(id);
     }
 
@@ -20,7 +19,7 @@ export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } 
                         name="task"
                         value={isDone}
                         checked={isDone}
-                        onChange={changeStatusTask}
+                        onChange={handleChangeStatusTask}
                     />
                     <span className={styles.checkmark}></span>
                 </label>

@@ -33,11 +33,21 @@ export default function App() {
 
   var [taskList, setTaskList] = useState(Tasks);
 
-  // This function will really delete tha task from the list
-  function refreshTasks(tasks) {
-    setTaskList(tasks)
-    // tasks.forEach(task => console.log(task))     
-    // console.log(`TaskList from App Component: ${tasks}`)
+  function deleteTask(id) {
+    const tasksWithoutDeletedOne = taskList.filter(task => {
+      return task.id !== id
+    })
+    setTaskList(tasksWithoutDeletedOne)
+  }
+
+  function changeStatusTask(taskId) {
+    const refreshedTaskList = taskList.map(task => {
+      if (task.id === taskId) {
+        task.isDone = !task.isDone
+      }
+      return task
+    })
+    setTaskList(refreshedTaskList)
   }
 
   return (
@@ -47,7 +57,8 @@ export default function App() {
         <InputForm />
         <Panel 
           tasks={taskList}
-          onRefreshApp={refreshTasks}/>
+          onDeleteTask={deleteTask}
+          onChangeStatus={changeStatusTask}/>
       </main>
     </header>
   )
