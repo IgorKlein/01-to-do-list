@@ -75,10 +75,6 @@
     display: block;
 }
 
-.taskDescription {
-
-}
-
 .taskDescriptionDone {
     color: var(--gray-300);
     text-decoration: line-through;
@@ -89,4 +85,5 @@
 
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }

@@ -35,7 +35,7 @@ export function InputForm( {onAddTask} ) {
             
             <button type="submit">
                 <p>Criar</p>
-                <img src="../src/assets/plus-icon.svg" alt="" />
+                <img src="./src/assets/plus-icon.svg" alt="" />
             </button>
             
         </form>
