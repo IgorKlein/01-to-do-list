@@ -31,7 +31,7 @@ export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } 
             </div>
             <a onClick={handleDeleteTask}>
                 <img 
-                    src="./src/assets/trash-icon.svg"
+                    src="/src/assets/trash-icon.svg"
                     alt=""  
                 />
             </a>            
