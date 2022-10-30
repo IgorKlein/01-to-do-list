@@ -8,7 +8,7 @@
     gap: 0.5rem;
 }
 
-.inputForm textArea {
+.inputForm input {
     width: 86.68%;
 
     padding: 1rem 0.5rem;
@@ -18,9 +18,8 @@
     border: 0;
     border-radius: 4px;
     resize: none;
-
 }
-.inputForm textArea::placeholder {
+.inputForm input::placeholder {
     color: var(--gray-300);
     opacity: 1;
 
@@ -40,4 +39,21 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media (max-width: 580px) { 
+    .inputForm {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .inputForm input {
+        width: 100%;
+    }
+
+    .inputForm button {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
 }

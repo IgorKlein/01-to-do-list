@@ -9,6 +9,7 @@ export function InputForm( {onAddTask} ) {
         event.preventDefault();
         const content = event.target.content.value
         onAddTask(content)
+        setNewTaskContent("")
     }
 
     function handleNewTextContentChange(event) {
@@ -16,18 +17,23 @@ export function InputForm( {onAddTask} ) {
         setNewTaskContent(newTextContent)
     }
 
+    function handleNewInvalidContent(event) {
+        event.target.setCustomValidity('Esse campo é obrigatório.')
+    }
+
     return (
         <form onSubmit={handleAddNewTask} className={styles.inputForm}>
-            <textarea
+            <input
+                type="text"
                 name="content" 
                 placeholder="Adicione uma nova tarefa"
                 value={newTaskContent}
                 onChange={handleNewTextContentChange}
+                onInvalid={handleNewInvalidContent}
+                required
             />
             
-            <button 
-                type="submit"
-                >
+            <button type="submit">
                 <p>Criar</p>
                 <img src="../src/assets/plus-icon.svg" alt="" />
             </button>
