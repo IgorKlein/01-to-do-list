@@ -1,4 +1,5 @@
 import styles from './TaskCard.module.css';
+import trashIcon from "../assets/trash-icon.svg"
 
 export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } ) {
 
@@ -31,8 +32,8 @@ export function TaskCard( { id, content, isDone, onDeleteTask, onChangeStatus } 
             </div>
             <a onClick={handleDeleteTask}>
                 <img 
-                    src="/src/assets/trash-icon.svg"
-                    alt=""  
+                    src={trashIcon}
+                    alt="Delete"  
                 />
             </a>            
         </div>

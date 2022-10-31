@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './InputForm.module.css'
+import plusIcon from "../assets/plus-icon.svg"
 
 export function InputForm( {onAddTask} ) {
 
@@ -35,7 +36,7 @@ export function InputForm( {onAddTask} ) {
             
             <button type="submit">
                 <p>Criar</p>
-                <img src="/src/assets/plus-icon.svg" alt="" />
+                <img src={plusIcon}/>
             </button>
             
         </form>
