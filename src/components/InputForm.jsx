@@ -19,7 +19,15 @@ export function InputForm( {onAddTask} ) {
     }
 
     function handleNewInvalidContent(event) {
-        event.target.setCustomValidity('Esse campo é obrigatório.')
+        const input = event.target
+
+        if (input.value === "") {
+            input.setCustomValidity('Esse campo é obrigatório.')
+        } else {
+            input.setCustomValidity('')
+        }
+
+        console.log(event)
     }
 
     return (
@@ -31,6 +39,7 @@ export function InputForm( {onAddTask} ) {
                 value={newTaskContent}
                 onChange={handleNewTextContentChange}
                 onInvalid={handleNewInvalidContent}
+                onInput={handleNewInvalidContent}
                 required
             />
             
