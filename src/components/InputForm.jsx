@@ -14,11 +14,20 @@ export function InputForm( {onAddTask} ) {
     }
 
     function handleNewTextContentChange(event) {
+        
+        checkInvalidInput(event)
+        
         const newTextContent = event.target.value
+
+        console.log(event.target.value)
         setNewTaskContent(newTextContent)
     }
 
     function handleNewInvalidContent(event) {
+        checkInvalidInput(event)
+    }
+
+    function checkInvalidInput(event) {
         const input = event.target
 
         if (input.value === "") {
@@ -26,8 +35,6 @@ export function InputForm( {onAddTask} ) {
         } else {
             input.setCustomValidity('')
         }
-
-        console.log(event)
     }
 
     return (
@@ -39,7 +46,7 @@ export function InputForm( {onAddTask} ) {
                 value={newTaskContent}
                 onChange={handleNewTextContentChange}
                 onInvalid={handleNewInvalidContent}
-                onInput={handleNewInvalidContent}
+                autoComplete="off"
                 required
             />
             

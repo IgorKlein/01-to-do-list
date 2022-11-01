@@ -45,6 +45,7 @@
     .inputForm {
         flex-direction: column;
         width: 100%;
+        height: 7rem;
     }
 
     .inputForm input {
