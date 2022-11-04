@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { InputForm } from './components/InputForm';
 import { Panel } from './components/Panel';
 import { useState } from 'react';
+import { EmptyScreen } from './components/EmptyScreen';
 
 const Tasks = [
   {
@@ -72,6 +73,7 @@ export default function App() {
           tasks={taskList}
           onDeleteTask={deleteTask}
           onChangeStatus={changeStatusTask}/>
+        {taskList.length > 0 ? null : <EmptyScreen/>}
       </main>
     </header>
   )
