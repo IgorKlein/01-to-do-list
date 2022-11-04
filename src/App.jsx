@@ -58,9 +58,7 @@ export default function App() {
       content: newTaskContent,
       isDone: false,
     }
-
     setTaskList([...taskList, newTask])
-    console.log([...taskList, newTask])
   }
 
   return (

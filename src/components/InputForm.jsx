@@ -14,12 +14,8 @@ export function InputForm( {onAddTask} ) {
     }
 
     function handleNewTextContentChange(event) {
-        
         checkInvalidInput(event)
-        
         const newTextContent = event.target.value
-
-        console.log(event.target.value)
         setNewTaskContent(newTextContent)
     }
 
@@ -29,7 +25,6 @@ export function InputForm( {onAddTask} ) {
 
     function checkInvalidInput(event) {
         const input = event.target
-
         if (input.value === "") {
             input.setCustomValidity('Esse campo é obrigatório.')
         } else {
@@ -49,12 +44,10 @@ export function InputForm( {onAddTask} ) {
                 autoComplete="off"
                 required
             />
-            
             <button type="submit">
                 <p>Criar</p>
                 <img src={plusIcon}/>
             </button>
-            
         </form>
     )
 }

@@ -13,7 +13,6 @@ main {
 
 .summary {
     margin-top: 8rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +26,6 @@ main {
 .done {
     color: var(--purple);
     font-size: 0.875rem;
-
 }
 
 .counter {

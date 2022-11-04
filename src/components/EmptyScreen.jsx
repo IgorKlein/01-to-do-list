@@ -5,7 +5,7 @@ export function EmptyScreen() {
     return (
         <div className={styles.screen}>
             <img src={clipboard} className={styles.clipboardImg} alt="Imagem de uma lista" />
-            <strong className={styles.boldtext}>Você não tem tarefas cadastradas.</strong>
+            <strong>Você não tem tarefas cadastradas.</strong>
             <p>Crie tarefas e organize os itens a fazer.</p>
         </div>
     )

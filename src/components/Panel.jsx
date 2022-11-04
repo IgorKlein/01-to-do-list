@@ -50,6 +50,5 @@ export function Panel(
             })}
           </div>
         </main>
-        
     )
 }
