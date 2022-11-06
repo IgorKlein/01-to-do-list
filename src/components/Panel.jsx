@@ -40,6 +40,7 @@ export function Panel(
             { tasks.map(task => {
             return (
               <TaskCard
+                key={task.id}
                 id={task.id}
                 content={task.content}
                 isDone={task.isDone}
